@@ -1,91 +1,91 @@
-# 🤖 QuizBot — Бот-опросник с сохранением результатов
+# 🤖 QuizBot — Survey bot with saved results
 
-## Описание
-Веб-приложение на Django с Telegram-ботом для прохождения опросов.
-Пользователь открывает сайт или пишет боту, проходит опрос и видит результат.
-Все ответы и сессии сохраняются в базе данных SQLite.
+## Description
+A Django web application with a Telegram bot for completing surveys.
+The user opens the website or contacts the bot, completes the survey, and sees the results.
+All responses and sessions are stored in a SQLite database.
 
-## Технологии
+## Technologies
 - Python 3
 - Django 4.2
 - SQLite (база данных)
 - Bootstrap 5 (интерфейс)
 - Telegram Bot API
 
-## Установка
+## Installation
 
-**1. Клонируй репозиторий**
+**1. Clone the repository**
 ```bash
 git clone https://github.com/твой_ник/quiz_bot.git
 cd quiz_bot
 ```
 
-**2. Установи зависимости**
+**2. Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-**3. Примени миграции**
+**3. Apply migrations**
 ```bash
 python manage.py migrate
 ```
 
-**4. Создай суперпользователя**
+**4. Create a superuser**
 ```bash
 python manage.py createsuperuser
 ```
 
-**5. Запусти сервер**
+**5. Start the server**
 ```bash
 python manage.py runserver
 ```
 
-## Запуск Telegram бота
+## Launching a Telegram bot
 ```bash
 cd telegrambot
 python bot.py
 ```
 
-## Адреса
-- Сайт: http://127.0.0.1:8000
-- Админка: http://127.0.0.1:8000/admin
+## Addresses
+- Site: http://127.0.0.1:8000
+- Admin: http://127.0.0.1:8000/admin
 - Telegram: @myquizproject_bot
 
-## Команды бота
-| Команда | Описание |
-|---------|----------|
-| /start | Приветствие и список команд |
-| /quizzes | Список доступных опросов |
-| /quiz_1 | Информация об опросе |
-| /help | Помощь |
+## Bot commands
+| Command  | Description                    |
+|----------|--------------------------------|
+| /start   | Greetings and list of commands |
+| /quizzes | List of available surveys      |
+| /quiz_1  | Survey Information             |
+| /help    | Help                           |
 
-## Структура проекта
+## Project structure
 ```
 quiz_bot/
-├── quiz_bot/            # настройки Django
+├── quiz_bot/            # settings Django
 │   ├── settings.py
 │   └── urls.py
-├── surveys/             # основное приложение
-│   ├── models.py        # модели БД (Quiz, Question, Answer, UserSession, UserResponse)
-│   ├── views.py         # логика страниц
-│   ├── urls.py          # маршруты
-│   └── templates/       # HTML шаблоны
+├── surveys/             # main application
+│   ├── models.py        # models BD (Quiz, Question, Answer, UserSession, UserResponse)
+│   ├── views.py         # page logic
+│   ├── urls.py          # routes
+│   └── templates/       # HTML templates
 │       └── surveys/
 │           ├── base.html
 │           ├── home.html
 │           ├── quiz.html
 │           └── results.html
 ├── telegrambot/
-│   └── bot.py           # Telegram бот
+│   └── bot.py           # Telegram bot
 ├── manage.py
 ├── requirements.txt
 └── README.md
 ```
 
-## Возможности
-- Просмотр списка опросов на главной странице
-- Пошаговое прохождение опроса с прогресс-баром
-- Сохранение всех ответов и результатов в БД
-- Просмотр итогов с разбором правильных/неправильных ответов
-- Управление опросами через Django Admin
-- Telegram бот для доступа к опросам
+## Possibilities
+- View the list of surveys on the main page
+- Step-by-step survey completion with a progress bar
+- Saving all answers and results in the database
+- Viewing the results with an analysis of correct/incorrect answers
+- Managing Polls via Django Admin
+- Telegram bot for accessing surveys
