@@ -8,8 +8,8 @@ All responses and sessions are stored in a SQLite database.
 ## Technologies
 - Python 3
 - Django 4.2
-- SQLite (база данных)
-- Bootstrap 5 (интерфейс)
+- SQLite (base data)
+- Bootstrap 5 (interface)
 - Telegram Bot API
 
 ## Installation
