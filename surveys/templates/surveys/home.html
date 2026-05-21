@@ -1,0 +1,32 @@
+{% extends 'surveys/base.html' %}
+
+{% block title %}Главная — QuizBot{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="mb-4">📋 Доступные опросы</h2>
+
+        {% if quizzes %}
+            {% for quiz in quizzes %}
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ quiz.title }}</h5>
+                    <p class="card-text text-muted">{{ quiz.description }}</p>
+                    <p class="text-secondary">
+                        Вопросов: {{ quiz.get_questions_count }}
+                    </p>
+                    <a href="{% url 'start_quiz' quiz.id %}"
+                       class="btn btn-primary">Начать опрос →</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-info">
+                Опросов пока нет. Добавьте их в
+                <a href="/admin">админке</a>.
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

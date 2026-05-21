@@ -1,0 +1,43 @@
+{% extends 'surveys/base.html' %}
+
+{% block title %}Результаты — {{ session.quiz.title }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-body text-center">
+                <h3>🎉 Опрос завершён!</h3>
+                <h5 class="text-muted">{{ session.quiz.title }}</h5>
+                <div class="display-4 fw-bold text-primary mt-3">
+                    {{ session.score }}%
+                </div>
+                <p class="text-muted mt-2">Ваш результат</p>
+                <a href="{% url 'home' %}" class="btn btn-outline-primary mt-2">
+                    ← Пройти другой опрос
+                </a>
+            </div>
+        </div>
+
+        <h5 class="mb-3">Ваши ответы:</h5>
+        {% for response in responses %}
+        <div class="card mb-2 shadow-sm">
+            <div class="card-body">
+                <p class="fw-bold mb-1">{{ response.question.text }}</p>
+                {% if response.selected_answer %}
+                    <p class="mb-0">
+                        Ваш ответ:
+                        <span class="{% if response.selected_answer.is_correct %}text-success{% else %}text-danger{% endif %}">
+                            {{ response.selected_answer.text }}
+                            {% if response.selected_answer.is_correct %}✅{% else %}❌{% endif %}
+                        </span>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
