@@ -16,7 +16,7 @@ All responses and sessions are stored in a SQLite database.
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/твой_ник/quiz_bot.git
+git clone https://github.com/zarlwx/quiz_bot.git
 cd quiz_bot
 ```
 
